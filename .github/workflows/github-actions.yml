@@ -1,0 +1,10 @@
+name: build-test-password-cli-manager
+on: [push]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt install -y gcc autoconf autotools-dev
+      - run: ./boostrap
+      - run: make
+      - run: make check
