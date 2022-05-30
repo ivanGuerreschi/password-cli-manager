@@ -6,6 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sudo apt install -y gcc autoconf autotools-dev
-      - run: "${GITHUB_WORKSPACE}/.bootstrap"
-      - run: make
-      - run: make check
+      - run: |
+          chmod +x ./bootstrap
+          ./bootstrap
+          make
+          make check
+        shell: bash
