@@ -1,0 +1,29 @@
+This is the README file for the password-cli-manager.
+
+Copyright (C) 2022 Ivan Guerreschi.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Autotools
+---------
+
+This distribution uses whatever versions of Automake, Autoconf.
+If you are getting the sources from git (or change configure.ac), you'll
+need to have these tools installed to (re)build.
+All of these programs are available from
+ftp://ftp.gnu.org/gnu.
+
+
+Building
+--------
+
+After getting the git sources, and installing the tools above, you
+can run
+
+  ./bootstrap
+
+to do a fresh build.  After that first time, running make should suffice.
+
+password-cli-manager is free software. See the file LICENSE for copying conditions.

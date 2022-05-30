@@ -1,0 +1,45 @@
+/* password.h
+
+   Copyright (C) 2022 Ivan Guerreschi.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+
+#ifndef PASSWORD_H
+#define PASSWORD_H
+
+#include <stdio.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef struct
+{
+  char *website;
+  char *username;
+  char *email;
+  char *password;
+} credential_t;
+
+void open_file (FILE **file, const char *filename);
+void close_file (FILE **file);
+int count_row (FILE *file);
+credential_t *all_credential (FILE *file, int row);
+void create_credential (FILE *file, credential_t credential);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* PASSWORD_H */
