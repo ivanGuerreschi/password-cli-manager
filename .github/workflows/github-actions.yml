@@ -4,6 +4,7 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: sudo apt install -y gcc autoconf autotools-dev
       - run: ./boostrap
       - run: make
