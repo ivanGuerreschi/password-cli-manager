@@ -32,7 +32,7 @@ main (void)
 
   const char *file = file_name (NAMEFILE);
   int menu = 0;
-
+    
   while (true)
     {
       menu = print_menu ();
@@ -41,15 +41,15 @@ main (void)
         {
         case 1:
           exit (1);
-          break;
+	  return true;
 
         case 2:
-          print_all_credential (file);
-          break;
-
+	  print_all_credential (file);
+	  return true;
+	  
         case 3:
           input_create_credential (file);
-          break;
+	  return true;
         }
 
     }

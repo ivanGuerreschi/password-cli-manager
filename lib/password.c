@@ -69,7 +69,7 @@ credential_t
       fprintf (stderr, "Error allocation failed");
       exit (EXIT_FAILURE);
     }
-
+  
   for (int i = 0; i < row; i++)
     {
       credential[i].website = (char *) malloc (100 * sizeof (char));
