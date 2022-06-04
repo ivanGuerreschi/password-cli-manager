@@ -41,15 +41,14 @@ main (void)
         {
         case 1:
           exit (1);
-	  return true;
-
+	  
         case 2:
 	  print_all_credential (file);
-	  return true;
+	  break;
 	  
         case 3:
           input_create_credential (file);
-	  return true;
+	  break;
         }
 
     }
