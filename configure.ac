@@ -22,7 +22,6 @@ AC_INIT([password-cli-manager], [1.0], [ivanguerreschi86@gmail.com])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/main.c])
-AC_PROG_RANLIB
 
 # Checks for programs.
 AC_PROG_CC
@@ -31,8 +30,7 @@ AC_PROG_RANLIB
 # Checks for header files.
 AC_CHECK_HEADERS([unistd.h])
 AC_CHECK_HEADER_STDBOOL
-AC_CHECK_FUNCS([memset])
-AC_CHECK_FUNCS([strcspn])
+AC_CHECK_FUNCS([memset strcspn])
 
 # Checks for library functions.
 AC_FUNC_MALLOC

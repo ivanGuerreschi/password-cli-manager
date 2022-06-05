@@ -47,11 +47,10 @@ main (void)
 	  break;
 	  
         case 3:
-          input_create_credential (file);
+	  input_create_credential (file);
 	  break;
-        }
-
+	}
     }
-
+  
   return EXIT_SUCCESS;
 }

@@ -34,8 +34,8 @@ typedef struct
 
 void open_file (FILE **file, const char *filename);
 void close_file (FILE **file);
-int count_row (FILE *file);
-credential_t *all_credential (FILE *file, int row);
+size_t count_row (FILE *file);
+credential_t *all_credential (FILE *file, size_t row);
 void create_credential (FILE *file, credential_t credential);
 
 #ifdef __cplusplus

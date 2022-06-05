@@ -44,7 +44,7 @@ close_file (FILE **file)
     }
 }
 
-int
+size_t
 count_row (FILE *file)
 {
   char c;
@@ -59,7 +59,7 @@ count_row (FILE *file)
 
 
 credential_t
-*all_credential (FILE *file, int row)
+*all_credential (FILE *file, size_t row)
 {
   credential_t *credential =
     (credential_t *) calloc (row + 1, sizeof (credential_t));
@@ -70,12 +70,35 @@ credential_t
       exit (EXIT_FAILURE);
     }
   
-  for (int i = 0; i < row; i++)
+  for (size_t i = 0; i < row; i++)
     {
       credential[i].website = (char *) malloc (100 * sizeof (char));
+      if (!credential[i].website)
+	{
+	  fprintf (stderr, "Error allocation failed");
+	  exit (EXIT_FAILURE);
+	}
+      
       credential[i].email = (char *) malloc (100 * sizeof (char));
+      if (!credential[i].email)
+	{
+	  fprintf (stderr, "Error allocation failed");
+	  exit (EXIT_FAILURE);
+	}
+      
       credential[i].username = (char *) malloc (100 * sizeof (char));
+      if (!credential[i].username)
+	{
+	  fprintf (stderr, "Error allocation failed");
+	  exit (EXIT_FAILURE);
+	}
+      
       credential[i].password = (char *) malloc (100 * sizeof (char));
+      if (!credential[i].password)
+	{
+	  fprintf (stderr, "Error allocation failed");
+	  exit (EXIT_FAILURE);
+	}
     }
 
   int n = 0;

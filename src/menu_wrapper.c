@@ -31,12 +31,12 @@ print_all_credential (const char *filename)
   open_file (&file_password, filename);
   open_file (&file_row, filename);
 
-  int row = count_row (file_row);
+  size_t row = count_row (file_row);
   credential_t *credential = all_credential (file_password, row);
 
   puts ("Website Username Email Password");
 
-  for (int i = 0; i < row; i++)
+  for (size_t i = 0; i < row; i++)
     {
       printf ("%s %s %s %s\n",
               credential[i].website,
@@ -45,7 +45,7 @@ print_all_credential (const char *filename)
               credential[i].password);
     }
 
-  for (int i = 0; i < row; i++)
+  for (size_t i = 0; i < row; i++)
     {
       free (credential[i].website);
       free (credential[i].username);

@@ -32,7 +32,7 @@ main (void)
   open_file (&file_password, file);
   open_file (&file_row, file);
 
-  int row = count_row (file_row);
+  size_t row = count_row (file_row);
   credential_t *credential = all_credential (file_password, row);
 
   if ((strncmp (credential[0].website, "webpippo", 8) == 0) &&
