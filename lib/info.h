@@ -18,17 +18,9 @@
 #ifndef INFO_H
 #define INFO_H
 
-#define  SOFTWARE_VERSION "0.1"
-
-# ifdef __cplusplus
-extern "C" {
-# endif
+#define SOFTWARE_VERSION "0.1"
 
 const char *print_version (void);
 const char *print_license (void);
-
-#ifdef __cplusplus
-}
-#endif
-
+  
 #endif /* INFO_H */

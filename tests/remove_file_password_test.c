@@ -15,8 +15,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include "utility.h"
 #include "include/utility_test.h"
+#include "utility.h"
 
 int
 main (void)
@@ -27,5 +27,4 @@ main (void)
     return 0;
   else
     return 1;
-
 }

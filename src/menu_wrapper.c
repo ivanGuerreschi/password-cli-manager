@@ -15,12 +15,12 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#include "include/menu_wrapper.h"
+#include "password.h"
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <errno.h>
-#include "include/menu_wrapper.h"
-#include "password.h"
 
 #define BUFFERSIZE 100
 
@@ -38,11 +38,8 @@ print_all_credential (const char *filename)
 
   for (size_t i = 0; i < row; i++)
     {
-      printf ("%s %s %s %s\n",
-              credential[i].website,
-              credential[i].username,
-              credential[i].email,
-              credential[i].password);
+      printf ("%s %s %s %s\n", credential[i].website, credential[i].username,
+              credential[i].email, credential[i].password);
     }
 
   for (size_t i = 0; i < row; i++)
@@ -62,11 +59,11 @@ print_all_credential (const char *filename)
 void
 input_create_credential (const char *filename)
 {
-  credential_t credential = {0};
-  char buffer[BUFFERSIZE] = {0};
+  credential_t credential = { 0, 0, 0, 0 };
+  char buffer[BUFFERSIZE] = { 0 };
 
   puts ("Website");
-  char *website = (char *) malloc (100 * sizeof (char));
+  char *website = malloc (100 * sizeof (char));
   if (website)
     {
       if (fgets (buffer, sizeof (buffer), stdin))
@@ -74,7 +71,7 @@ input_create_credential (const char *filename)
           buffer[strcspn (buffer, "\r\n")] = 0;
           strncpy (website, buffer, BUFFERSIZE);
           memset (buffer, 0, BUFFERSIZE);
-          credential.website = (char *) malloc (100 * sizeof (char));
+          credential.website = (char *)malloc (100 * sizeof (char));
           if (credential.website)
             strncpy (credential.website, website, BUFFERSIZE);
           else
@@ -86,7 +83,8 @@ input_create_credential (const char *filename)
       else
         {
           int error_number = errno;
-          fprintf (stderr, "Error standard input %s\n", strerror (error_number));
+          fprintf (stderr, "Error standard input %s\n",
+                   strerror (error_number));
           exit (EXIT_FAILURE);
         }
     }
@@ -100,7 +98,7 @@ input_create_credential (const char *filename)
   website = NULL;
 
   puts ("Username");
-  char *username = (char *) malloc (100 * sizeof (char));
+  char *username = malloc (100 * sizeof (char));
   if (username)
     {
       if (fgets (buffer, sizeof (buffer), stdin))
@@ -108,7 +106,7 @@ input_create_credential (const char *filename)
           buffer[strcspn (buffer, "\r\n")] = 0;
           strncpy (username, buffer, BUFFERSIZE);
           memset (buffer, 0, BUFFERSIZE);
-          credential.username = (char *) malloc (100 * sizeof (char));
+          credential.username = (char *)malloc (100 * sizeof (char));
           if (credential.username)
             strncpy (credential.username, username, BUFFERSIZE);
           else
@@ -120,7 +118,8 @@ input_create_credential (const char *filename)
       else
         {
           int error_number = errno;
-          fprintf (stderr, "Error standard input %s\n", strerror (error_number));
+          fprintf (stderr, "Error standard input %s\n",
+                   strerror (error_number));
           exit (EXIT_FAILURE);
         }
     }
@@ -134,7 +133,7 @@ input_create_credential (const char *filename)
   username = NULL;
 
   puts ("Email");
-  char *email = (char *) malloc (100 * sizeof (char));
+  char *email = malloc (100 * sizeof (char));
   if (email)
     {
       if (fgets (buffer, sizeof (buffer), stdin))
@@ -142,7 +141,7 @@ input_create_credential (const char *filename)
           buffer[strcspn (buffer, "\r\n")] = 0;
           strncpy (email, buffer, BUFFERSIZE);
           memset (buffer, 0, BUFFERSIZE);
-          credential.email = (char *) malloc (100 * sizeof (char));
+          credential.email = malloc (100 * sizeof (char));
           if (credential.email)
             strncpy (credential.email, email, BUFFERSIZE);
           else
@@ -154,7 +153,8 @@ input_create_credential (const char *filename)
       else
         {
           int error_number = errno;
-          fprintf (stderr, "Error standard input %s\n", strerror (error_number));
+          fprintf (stderr, "Error standard input %s\n",
+                   strerror (error_number));
           exit (EXIT_FAILURE);
         }
     }
@@ -168,14 +168,14 @@ input_create_credential (const char *filename)
   email = NULL;
 
   puts ("Password");
-  char *password = (char *) malloc (100 * sizeof (char));
+  char *password = malloc (100 * sizeof (char));
   if (password)
     {
       if (fgets (buffer, sizeof (buffer), stdin))
         {
           buffer[strcspn (buffer, "\r\n")] = 0;
           strncpy (password, buffer, BUFFERSIZE);
-          credential.password = (char *) malloc (100 * sizeof (char));
+          credential.password = malloc (100 * sizeof (char));
           if (credential.password)
             strncpy (credential.password, password, BUFFERSIZE);
           else

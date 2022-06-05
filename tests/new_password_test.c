@@ -15,11 +15,11 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include <stdlib.h>
-#include <string.h>
-#include "utility.h"
 #include "include/utility_test.h"
 #include "password.h"
+#include "utility.h"
+#include <stdlib.h>
+#include <string.h>
 
 int
 main (void)
@@ -33,26 +33,26 @@ main (void)
 
   credential_t credential;
 
-  credential.website = (char *) malloc (50 * sizeof (char));
+  credential.website = malloc (50 * sizeof (char));
   if (credential.website)
     strcpy (credential.website, "webpippo");
 
-  credential.username = (char *) malloc (50 * sizeof (char));
+  credential.username = malloc (50 * sizeof (char));
   if (credential.username)
     strcpy (credential.username, "pippo");
 
-  credential.email = (char *) malloc (50 * sizeof (char));
+  credential.email = malloc (50 * sizeof (char));
   if (credential.email)
     strcpy (credential.email, "pippo@topolandia.com");
 
-  credential.password = (char *) malloc (50 * sizeof (char));
+  credential.password = malloc (50 * sizeof (char));
   if (credential.password)
     strcpy (credential.password, "1234");
 
-  if ((strncmp (credential.website, "webpippo", 8) == 0) &&
-      (strncmp (credential.username, "pippo", 5) == 0) &&
-      (strncmp (credential.email, "pippo@topolandia.com", 20) == 0) &&
-      (strncmp (credential.password, "1234", 4) == 0))
+  if ((strncmp (credential.website, "webpippo", 8) == 0)
+      && (strncmp (credential.username, "pippo", 5) == 0)
+      && (strncmp (credential.email, "pippo@topolandia.com", 20) == 0)
+      && (strncmp (credential.password, "1234", 4) == 0))
     value = 0;
   else
     value = 1;

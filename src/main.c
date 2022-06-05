@@ -15,24 +15,24 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#include "include/menu.h"
+#include "include/menu_wrapper.h"
+#include "info.h"
+#include "password.h"
+#include "utility.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "info.h"
-#include "password.h"
-#include "include/menu.h"
-#include "include/menu_wrapper.h"
-#include "utility.h"
 
 int
 main (void)
 {
-  printf ("Password manager version: %s\n\n", print_version());
+  printf ("Password manager version: %s\n\n", print_version ());
   printf ("%s\n\n", print_license ());
 
   const char *file = file_name (NAMEFILE);
   int menu = 0;
-    
+
   while (true)
     {
       menu = print_menu ();
@@ -41,16 +41,16 @@ main (void)
         {
         case 1:
           exit (1);
-	  
+
         case 2:
-	  print_all_credential (file);
-	  break;
-	  
+          print_all_credential (file);
+          break;
+
         case 3:
-	  input_create_credential (file);
-	  break;
-	}
+          input_create_credential (file);
+          break;
+        }
     }
-  
+
   return EXIT_SUCCESS;
 }

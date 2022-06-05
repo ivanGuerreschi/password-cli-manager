@@ -15,11 +15,11 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include <string.h>
-#include <stdlib.h>
+#include "include/utility_test.h"
 #include "password.h"
 #include "utility.h"
-#include "include/utility_test.h"
+#include <stdlib.h>
+#include <string.h>
 
 int
 main (void)
@@ -35,11 +35,11 @@ main (void)
   size_t row = count_row (file_row);
   credential_t *credential = all_credential (file_password, row);
 
-  if ((strncmp (credential[0].website, "webpippo", 8) == 0) &&
-      (strncmp (credential[0].username, "pippo", 5) == 0) &&
-      (strncmp (credential[0].email, "pippo@topolandia.com", 20) == 0) &&
-      (strncmp (credential[0].password, "1234", 4) == 0))
-    value =  0;
+  if ((strncmp (credential[0].website, "webpippo", 8) == 0)
+      && (strncmp (credential[0].username, "pippo", 5) == 0)
+      && (strncmp (credential[0].email, "pippo@topolandia.com", 20) == 0)
+      && (strncmp (credential[0].password, "1234", 4) == 0))
+    value = 0;
   else
     value = 1;
 

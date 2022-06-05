@@ -19,10 +19,11 @@
 #define MENU_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-int print_menu (void);
+  int print_menu (void);
 
 #ifdef __cplusplus
 }

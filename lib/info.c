@@ -17,17 +17,19 @@
 
 #include "info.h"
 
-const char
-*print_version (void)
+const char *
+print_version (void)
 {
   return SOFTWARE_VERSION;
 }
 
-const char
-*print_license (void)
+const char *
+print_license (void)
 {
-  return "This program is free software: you can redistribute it and/or modify\n"
-         "it under the terms of the GNU General Public License as published by\n"
+  return "This program is free software: you can redistribute it and/or "
+         "modify\n"
+         "it under the terms of the GNU General Public License as published "
+         "by\n"
          "the Free Software Foundation, either version 3 of the License, or\n"
          "(at your option) any later version.\n\n"
 
@@ -37,5 +39,6 @@ const char
          "GNU General Public License for more details.\n\n"
 
          "You should have received a copy of the GNU General Public License\n"
-         "along with this program.  If not, see <https://www.gnu.org/licenses/>.\n";
+         "along with this program.  If not, see "
+         "<https://www.gnu.org/licenses/>.\n";
 }

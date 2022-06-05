@@ -19,7 +19,8 @@
 #define UTILITY_TEST_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #define NAMEFILETEST "/.passwordtest"

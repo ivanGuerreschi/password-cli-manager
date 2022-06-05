@@ -18,17 +18,9 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #define NAMEFILE "/.password"
 
 const char *file_name (const char *file_password);
 int remove_file (const char *file);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* UTILITY_H */

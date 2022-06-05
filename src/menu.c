@@ -15,10 +15,10 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#include "include/menu.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "include/menu.h"
 
 int
 print_menu (void)
@@ -26,13 +26,15 @@ print_menu (void)
   int number_input = 0;
   char buffer[BUFSIZ];
 
-  puts ("--------------------------------------------------------------------------------------------------------------------------");
+  puts ("---------------------------------------------------------------------"
+        "-----------------------------------------------------");
   puts ("password_manager\n");
   puts ("(1, 2, 3) Input number");
   puts ("(1) Quit ");
   puts ("(2) All passwords");
   puts ("(3) Add new password");
-  puts ("--------------------------------------------------------------------------------------------------------------------------");
+  puts ("---------------------------------------------------------------------"
+        "-----------------------------------------------------");
 
   if (fgets (buffer, sizeof (buffer), stdin) != NULL)
     {

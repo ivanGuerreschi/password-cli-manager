@@ -15,9 +15,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include <string.h>
-#include "utility.h"
 #include "include/utility_test.h"
+#include "utility.h"
+#include <string.h>
 
 int
 main (void)

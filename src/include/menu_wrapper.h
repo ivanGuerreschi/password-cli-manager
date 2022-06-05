@@ -21,8 +21,4 @@
 void print_all_credential (const char *filename);
 void input_create_credential (const char *filename);
 
-#ifdef __cplusplus
-}
-#endif
-
 #endif /* MENU_WRAPPER_H */
