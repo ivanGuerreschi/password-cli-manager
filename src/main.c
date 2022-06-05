@@ -32,25 +32,26 @@ main (void)
 
   const char *file = file_name (NAMEFILE);
   int menu = 0;
+  bool loop = true;
 
-  while (true)
+  do
     {
       menu = print_menu ();
 
-      switch (menu)
+      if (menu == 1)
+        exit (1);
+      else if (menu == 2)
         {
-        case 1:
-          exit (1);
-
-        case 2:
           print_all_credential (file);
-          break;
-
-        case 3:
+          loop = true;
+        }
+      else
+        {
           input_create_credential (file);
-          break;
+          loop = true;
         }
     }
+  while (loop);
 
   return EXIT_SUCCESS;
 }
