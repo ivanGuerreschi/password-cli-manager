@@ -22,5 +22,5 @@
 
 const char *print_version (void);
 const char *print_license (void);
-  
+
 #endif /* INFO_H */

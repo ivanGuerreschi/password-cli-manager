@@ -62,8 +62,7 @@ count_row (FILE *file)
 credential_t *
 all_credential (FILE *file, size_t row)
 {
-  credential_t *credential
-      = calloc (row + 1, sizeof (credential_t));
+  credential_t *credential = calloc (row + 1, sizeof (credential_t));
 
   if (!credential)
     {
@@ -148,8 +147,8 @@ create_credential (FILE *file, credential_t credential)
   else
     {
       strcpy (buffer, credential.website);
-      new_credential = realloc (
-          new_credential, strlen (new_credential) + 2 + strlen (buffer));
+      new_credential = realloc (new_credential,
+                                strlen (new_credential) + 2 + strlen (buffer));
       if (!new_credential)
         {
           fprintf (stderr, "Error allocation failed");
@@ -159,8 +158,8 @@ create_credential (FILE *file, credential_t credential)
         strcat (new_credential, strcat (buffer, " "));
 
       strcpy (buffer, credential.username);
-      new_credential = realloc (
-          new_credential, strlen (new_credential) + 2 + strlen (buffer));
+      new_credential = realloc (new_credential,
+                                strlen (new_credential) + 2 + strlen (buffer));
       if (!new_credential)
         {
           fprintf (stderr, "Error allocation failed");
@@ -170,8 +169,8 @@ create_credential (FILE *file, credential_t credential)
         strcat (new_credential, strcat (buffer, " "));
 
       strcpy (buffer, credential.email);
-      new_credential = realloc (
-          new_credential, strlen (new_credential) + 2 + strlen (buffer));
+      new_credential = realloc (new_credential,
+                                strlen (new_credential) + 2 + strlen (buffer));
       if (!new_credential)
         {
           fprintf (stderr, "Error allocation failed");
@@ -181,8 +180,8 @@ create_credential (FILE *file, credential_t credential)
         strcat (new_credential, strcat (buffer, " "));
 
       strcpy (buffer, credential.password);
-      new_credential = realloc (
-          new_credential, strlen (new_credential) + 2 + strlen (buffer));
+      new_credential = realloc (new_credential,
+                                strlen (new_credential) + 2 + strlen (buffer));
       if (!new_credential)
         {
           fprintf (stderr, "Error allocation failed");
