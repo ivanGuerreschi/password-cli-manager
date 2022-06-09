@@ -39,7 +39,10 @@ main (void)
       menu = print_menu ();
 
       if (menu == 1)
-        exit (1);
+	{
+	  exit (1);
+	  loop = false;
+	}
       else if (menu == 2)
         {
           print_all_credential (file);
