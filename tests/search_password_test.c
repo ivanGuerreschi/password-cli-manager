@@ -1,4 +1,4 @@
-/* password.c
+/* search_password_test.c
 
    Copyright (C) 2022 Ivan Guerreschi.
 
@@ -15,9 +15,32 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#ifndef UTILITY_TEST_H
-#define UTILITY_TEST_H
+#include "include/utility_test.h"
+#include "password.h"
+#include "utility.h"
 
-#define NAMEFILETEST "/.passwordtest"
+int
+main (void)
+{
+  int value = 1;
 
-#endif /* UTILITY_TEST_H */
+  const char *file = file_name (NAMEFILETEST);
+
+  FILE *file_password, *file_row;
+  open_file (&file_password, file);
+  open_file (&file_row, file);
+
+  size_t row = count_row (file_row);
+  credential_t *credential = all_credential (file_password, row);
+
+  const char *key = "webpippo";
+
+  int result = search (credential, row, key);
+
+  if (result >= 0)
+    value = 0;
+  else
+    value = 1;
+  
+  return value;
+}

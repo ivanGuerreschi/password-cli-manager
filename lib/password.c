@@ -207,7 +207,10 @@ search (credential_t *credential, size_t row, const char *key)
   
   for (size_t i = 0; i < row; i++)
     {
-      if (strcmp (credential[i].website, key) == 0)
+      if (strcmp (credential[i].website, key) == 0
+	  || strcmp (credential[i].username, key) == 0
+	  || strcmp (credential[i].email, key) == 0
+	  || strcmp (credential[i].password, key) == 0)
         {
           result = i;
 	  break;

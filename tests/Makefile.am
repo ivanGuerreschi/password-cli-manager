@@ -18,7 +18,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-TESTS = file_password_test file_password_xfail_test new_password_test all_password_test remove_file_password_test
+TESTS = file_password_test file_password_xfail_test new_password_test \
+	all_password_test search_password_test remove_file_password_test
 XFAIL_TESTS = file_password_xfail_test
 check_PROGRAMS = $(TESTS)
 
@@ -39,6 +40,10 @@ new_password_test_LDADD = $(top_builddir)/lib/libpassword.a
 all_password_test_SOURCES = all_password_test.c
 all_password_test_CFLAGS = -I $(top_srcdir)/lib
 all_password_test_LDADD = $(top_builddir)/lib/libpassword.a
+
+search_password_test_SOURCES = search_password_test.c 
+search_password_test_CFLAGS = -I $(top_srcdir)/lib
+search_password_test_LDADD = $(top_builddir)/lib/libpassword.a
 
 remove_file_password_test_SOURCES = remove_file_password_test.c 
 remove_file_password_test_CFLAGS = -I $(top_srcdir)/lib
