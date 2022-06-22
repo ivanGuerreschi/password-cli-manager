@@ -101,33 +101,31 @@ all_credential (FILE *file, size_t row)
         }
     }
 
-  int n = 0;
+  int i = 0;
   int res = 0;
 
   while (1)
     {
-      res = fscanf (file, "%s", credential[n].website);
+      res = fscanf (file, "%s", credential[i].website);
       if (res != 1)
         break;
 
-      res = fscanf (file, "%s", credential[n].username);
+      res = fscanf (file, "%s", credential[i].username);
       if (res != 1)
         break;
 
-      res = fscanf (file, "%s", credential[n].email);
+      res = fscanf (file, "%s", credential[i].email);
       if (res != 1)
         break;
 
-      res = fscanf (file, "%s", credential[n].password);
+      res = fscanf (file, "%s", credential[i].password);
       if (res != 1)
         {
-          int error_number = errno;
-          fprintf (stderr, "Error read file /home/user/.password %s\n",
-                   strerror (error_number));
+	  fprintf (stderr, "Error read file /home/user/.password\n");
           exit (EXIT_FAILURE);
         }
 
-      n++;
+      i++;
     }
 
   return credential;
@@ -138,7 +136,7 @@ create_credential (FILE *file, credential_t credential)
 {
   char buffer[BUFSIZ];
   char *new_credential = calloc (1, 1);
-
+  
   if (!new_credential)
     {
       fprintf (stderr, "Error allocation failed");
@@ -200,4 +198,23 @@ create_credential (FILE *file, credential_t credential)
   free (credential.email);
   free (credential.password);
   free (new_credential);
+}
+
+int
+search (credential_t *credential, size_t row, const char *key)
+{
+  int result = -1;
+  
+  for (size_t i = 0; i < row; i++)
+    {
+      if (strcmp (credential[i].website, key) == 0)
+        {
+          result = i;
+	  break;
+        }
+      else
+        result = -1;
+    }
+
+  return result;
 }

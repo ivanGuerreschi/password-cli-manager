@@ -20,6 +20,7 @@
 #include "info.h"
 #include "password.h"
 #include "utility.h"
+#include "search.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,20 +40,28 @@ main (void)
       menu = print_menu ();
 
       if (menu == 1)
-	{
-	  exit (1);
-	  loop = false;
-	}
+        {
+          exit (1);
+          loop = false;
+        }
       else if (menu == 2)
         {
           print_all_credential (file);
           loop = true;
         }
-      else
+      else if (menu == 3)
         {
           input_create_credential (file);
           loop = true;
         }
+
+      else if (menu == 4)
+	{
+	  search_credential (file);
+	  loop = true;
+	}
+      else
+	puts ("Input error");
     }
   while (loop);
 

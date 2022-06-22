@@ -205,3 +205,55 @@ input_create_credential (const char *filename)
   create_credential (file, credential);
   close_file (&file);
 }
+
+void
+search_credential (const char *filename)
+{
+  FILE *file_password, *file_row;
+  open_file (&file_password, filename);
+  open_file (&file_row, filename);
+
+  size_t row = count_row (file_row);
+  credential_t *credential = all_credential (file_password, row);
+
+  char buffer[BUFFERSIZE] = { 0 };
+
+  puts ("Enter the key search");
+  char *key = malloc (100 * sizeof (char));
+  if (key)
+    {
+      if (fgets (buffer, sizeof (buffer), stdin))
+        {
+          buffer[strcspn (buffer, "\r\n")] = 0;
+          strncpy (key, buffer, BUFFERSIZE);
+        }
+      else
+        {
+          int error_number = errno;
+          fprintf (stderr, "Error standard input %s\n",
+                   strerror (error_number));
+          exit (EXIT_FAILURE);
+        }
+    }
+  else
+    {
+      fprintf (stderr, "Error allocation failed");
+      exit (EXIT_FAILURE);
+    }
+
+  int result = search (credential, row, key);
+
+  if (result >= 0)
+    printf ("Website: %s Username: %s Email: %s Password: %s\n",
+            credential[result].website, credential[result].username,
+            credential[result].email, credential[result].password);
+  else
+    puts ("Not found");
+
+  free (key);
+  key = NULL;
+  free (credential);
+  credential = NULL;
+  close_file (&file_row);
+  close_file (&file_password);
+}

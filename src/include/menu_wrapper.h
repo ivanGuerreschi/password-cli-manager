@@ -20,5 +20,6 @@
 
 void print_all_credential (const char *filename);
 void input_create_credential (const char *filename);
+void search_credential (const char *filename);
 
 #endif /* MENU_WRAPPER_H */
