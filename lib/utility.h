@@ -19,6 +19,7 @@
 #define UTILITY_H
 
 #define NAMEFILE "/.password"
+#define NAMEFILETMP "/tmp/.passwordtmp"
 
 const char *file_name (const char *file_password);
 int remove_file (const char *file);

@@ -28,11 +28,12 @@ print_menu (void)
 
   puts ("---------------------------------------------------------------------");
   puts ("password_manager\n");
-  puts ("(1, 2, 3, 4) Input number");
+  puts ("(1, 2, 3, 4, 5) Input number");
   puts ("(1) Quit ");
   puts ("(2) All passwords");
   puts ("(3) Add new password");
-  puts ("(4) Search");
+  puts ("(4) Search password");
+  puts ("(5) Delete password");
   puts ("---------------------------------------------------------------------");
 
 

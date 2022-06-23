@@ -21,5 +21,7 @@
 void print_all_credential (const char *filename);
 void input_create_credential (const char *filename);
 void search_credential (const char *filename);
+void delete_credential (const char *filename, const char *tmp_filename);
+void delete_file (const char *filename);
 
 #endif /* MENU_WRAPPER_H */

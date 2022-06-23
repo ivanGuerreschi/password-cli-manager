@@ -60,7 +60,7 @@ count_row (FILE *file)
 }
 
 credential_t *
-all_credential (FILE *file, size_t row)
+all (FILE *file, size_t row)
 {
   credential_t *credential = calloc (row + 1, sizeof (credential_t));
 
@@ -132,7 +132,7 @@ all_credential (FILE *file, size_t row)
 }
 
 void
-create_credential (FILE *file, credential_t credential)
+create (FILE *file, credential_t credential)
 {
   char buffer[BUFSIZ];
   char *new_credential = calloc (1, 1);
@@ -221,3 +221,18 @@ search (credential_t *credential, size_t row, const char *key)
 
   return result;
 }
+
+void
+delete (FILE *file, FILE *tmp_file, const int line)
+{
+  char buffer[BUFSIZ];
+  int count = 1;
+
+  while ((fgets(buffer, BUFSIZ, file)) != NULL)
+    {
+      if (line != count)
+        fputs(buffer, tmp_file);
+      count++;
+    }
+}
+

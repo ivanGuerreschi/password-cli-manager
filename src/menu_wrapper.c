@@ -17,6 +17,8 @@
 
 #include "include/menu_wrapper.h"
 #include "password.h"
+#include "utility.h"
+#include <ctype.h>
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,13 +34,13 @@ print_all_credential (const char *filename)
   open_file (&file_row, filename);
 
   size_t row = count_row (file_row);
-  credential_t *credential = all_credential (file_password, row);
+  credential_t *credential = all (file_password, row);
 
-  puts ("Website Username Email Password");
+  puts ("ID Website Username Email Password");
 
   for (size_t i = 0; i < row; i++)
     {
-      printf ("%s %s %s %s\n", credential[i].website, credential[i].username,
+      printf ("%ld %s %s %s %s\n", i, credential[i].website, credential[i].username,
               credential[i].email, credential[i].password);
     }
 
@@ -202,7 +204,7 @@ input_create_credential (const char *filename)
 
   FILE *file;
   open_file (&file, filename);
-  create_credential (file, credential);
+  create (file, credential);
   close_file (&file);
 }
 
@@ -214,7 +216,7 @@ search_credential (const char *filename)
   open_file (&file_row, filename);
 
   size_t row = count_row (file_row);
-  credential_t *credential = all_credential (file_password, row);
+  credential_t *credential = all (file_password, row);
 
   char buffer[BUFFERSIZE] = { 0 };
 
@@ -256,4 +258,55 @@ search_credential (const char *filename)
   credential = NULL;
   close_file (&file_row);
   close_file (&file_password);
+}
+
+void
+delete_credential (const char *filename, const char *tmp_filename)
+{
+  FILE *file_password, *file_tmp;
+  open_file (&file_password, filename);
+  open_file (&file_tmp, tmp_filename);
+
+  int line = 0;
+  char buffer[2] = { 0 };
+
+  puts ("Enter the number line for delete credential");
+  char *line_input = malloc (2 * sizeof (char));
+  if (line_input)
+    {
+      if (fgets (buffer, sizeof (buffer), stdin))
+        {
+          buffer[strcspn (buffer, "\r\n")] = 0;
+          strncpy (line_input, buffer, 2);
+        }
+      else
+        {
+          int error_number = errno;
+          fprintf (stderr, "Error standard input %s\n",
+                   strerror (error_number));
+          exit (EXIT_FAILURE);
+        }
+    }
+
+  else
+    {
+      fprintf (stderr, "Error allocation failed");
+      exit (EXIT_FAILURE);
+    }
+
+  if (isdigit (line_input[0]))
+    {
+      line = atoi (line_input);
+      rewind (file_password);
+      delete (file_password, file_tmp, line);
+      if (remove_file (filename) == 0)
+        rename (tmp_filename, filename);
+      else
+        fprintf (stderr, "Error delete file");
+    }
+  else
+    fprintf (stderr, "Error input is not number");
+
+  close_file (&file_password);
+  close_file (&file_tmp);
 }

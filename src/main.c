@@ -32,6 +32,7 @@ main (void)
   printf ("%s\n\n", print_license ());
 
   const char *file = file_name (NAMEFILE);
+  const char *file_tmp = NAMEFILETMP;
   int menu = 0;
   bool loop = true;
 
@@ -58,6 +59,12 @@ main (void)
       else if (menu == 4)
 	{
 	  search_credential (file);
+	  loop = true;
+	}
+
+      else if (menu == 5)
+	{
+	  delete_credential (file, file_tmp);
 	  loop = true;
 	}
       else
