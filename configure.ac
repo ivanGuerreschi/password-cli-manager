@@ -1,4 +1,4 @@
-dnl Makefile.am
+dnl configure.ac
 dnl
 dnl Copyright (C) 2022 Ivan Guerreschi.
 dnl
@@ -30,11 +30,12 @@ AC_PROG_RANLIB
 # Checks for header files.
 AC_CHECK_HEADERS([unistd.h])
 AC_CHECK_HEADER_STDBOOL
-AC_CHECK_FUNCS([memset strcspn])
+AC_CHECK_FUNCS([memset strcspn strerror])
 
 # Checks for library functions.
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
+AC_TYPE_SIZE_T
 
 AC_CONFIG_FILES([Makefile
 	lib/Makefile
