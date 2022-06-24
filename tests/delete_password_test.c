@@ -1,4 +1,4 @@
-/* search_password_test.c
+/* delete_password_test.c
 
    Copyright (C) 2022 Ivan Guerreschi.
 
@@ -24,23 +24,30 @@ main (void)
 {
   int value = 1;
 
+  int line = 1;
   const char *file = file_name (NAMEFILETEST);
+  const char *filetmp = "/tmp/.passwordtmp";
 
-  FILE *file_password, *file_row;
+  FILE *file_password, *file_row, *file_tmp;
   open_file (&file_password, file);
+  open_file (&file_tmp, filetmp);
+
+  rewind (file_password);
+  delete (file_password, file_tmp, line);
+  remove_file (file);
+  rename (filetmp, file);
+
+  close_file (&file_password);
+  close_file (&file_tmp);
+
   open_file (&file_row, file);
 
-  size_t row = count_row (file_row);
-  credential_t *credential = all (file_password, row);
-
-  const char *key = "webpippo";
-
-  int result = search (credential, row, key);
-
-  if (result >= 0)
+  if (count_row (file_row) == 0)
     value = 0;
   else
     value = 1;
-  
+
+  close_file (&file_row);
+
   return value;
 }

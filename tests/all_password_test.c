@@ -33,7 +33,7 @@ main (void)
   open_file (&file_row, file);
 
   size_t row = count_row (file_row);
-  credential_t *credential = all_credential (file_password, row);
+  credential_t *credential = all (file_password, row);
 
   if ((strncmp (credential[0].website, "webpippo", 8) == 0)
       && (strncmp (credential[0].username, "pippo", 5) == 0)

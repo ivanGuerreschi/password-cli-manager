@@ -57,7 +57,7 @@ main (void)
   else
     value = 1;
 
-  create_credential (file_password, credential);
+  create (file_password, credential);
 
   close_file (&file_password);
 
