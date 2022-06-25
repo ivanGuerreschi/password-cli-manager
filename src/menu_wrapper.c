@@ -40,7 +40,7 @@ print_all_credential (const char *filename)
 
   for (size_t i = 0; i < row; i++)
     {
-      printf ("%ld %s %s %s %s\n", i, credential[i].website, credential[i].username,
+      printf ("%ld %s %s %s %s\n", i + 1, credential[i].website, credential[i].username,
               credential[i].email, credential[i].password);
     }
 
