@@ -28,8 +28,9 @@
 int
 main (void)
 {
-  printf ("Password manager version: %s\n\n", print_version ());
-  printf ("%s\n\n", print_license ());
+  printf ("Password manager version: %s\n", version ());
+  printf ("Bug report: %s\n\n", bugreport ());
+  printf ("%s\n\n", license ());
 
   const char *file = file_name (NAMEFILE);
   const char *file_tmp = NAMEFILETMP;

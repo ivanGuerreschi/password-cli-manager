@@ -1,6 +1,16 @@
+2022-06-25 Ivan Guerreschi <ivanguerreschi86@gmail.com>
+
+	* Release: 1.1
+	* lib/password.h, lib/password.c (search): function for search credential
+	* lib/password.h, lib/password.c (delete): function for delete credential
+	* src/menu.c (print_menu): add number input for search, delete function
+	* src/menu_wrapper.c (search_credential): implementation search function
+	* src/menu_wrapper.c (delete_credential): implementation delete function
+	* src/main.c (main): menu case number for search, delete function
+
 2022-05-23 Ivan Guerreschi <ivanguerreschi86@gmail.com>
 
-	* Release 1.0
+	* Release: 1.0
 
 Copyright (C) 2022 Ivan Guerreschi
 

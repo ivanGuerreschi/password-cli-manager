@@ -18,13 +18,25 @@
 #include "info.h"
 
 const char *
-print_version (void)
+version (void)
 {
-  return SOFTWARE_VERSION;
+  return VERSION;
 }
 
 const char *
-print_license (void)
+package (void)
+{
+  return PACKAGE_STRING;
+}
+
+const char *
+bugreport (void)
+{
+  return PACKAGE_BUGREPORT;
+}
+
+const char *
+license (void)
 {
   return "This program is free software: you can redistribute it and/or "
          "modify\n"

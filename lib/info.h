@@ -18,9 +18,13 @@
 #ifndef INFO_H
 #define INFO_H
 
-#define SOFTWARE_VERSION "0.1"
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 
-const char *print_version (void);
-const char *print_license (void);
+const char *version (void);
+const char *package (void);
+const char *bugreport (void);
+const char *license (void);
 
 #endif /* INFO_H */

@@ -18,7 +18,7 @@ dnl
 dnl You should have received a copy of the GNU General Public License
 dnl along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([password-cli-manager], [1.0], [ivanguerreschi86@gmail.com])
+AC_INIT([password-cli-manager], [1.1], [ivanguerreschi86@gmail.com])
 AM_INIT_AUTOMAKE([foreign])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/main.c])
