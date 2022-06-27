@@ -15,6 +15,9 @@ need to have these tools installed to (re)build.
 All of these programs are available from
 ftp://ftp.gnu.org/gnu.
 
+Install dependencies on Ubuntu
+sudo apt update
+sudo apt install gcc autotools-dev autoconf autoconf-archive
 
 Building
 --------
