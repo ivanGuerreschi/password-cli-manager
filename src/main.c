@@ -69,7 +69,7 @@ main (void)
 	  loop = true;
 	}
       else
-	puts ("Input error");
+	puts ("Input error (1,2,3,4,5 are valid option");
     }
   while (loop);
 
