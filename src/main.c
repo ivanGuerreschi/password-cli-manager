@@ -32,8 +32,6 @@ main (void)
   printf ("Bug report: %s\n\n", bugreport ());
   printf ("%s\n\n", license ());
 
-  const char *file = file_name (NAMEFILE);
-  const char *file_tmp = NAMEFILETMP;
   int menu = 0;
   bool loop = true;
 
@@ -48,28 +46,26 @@ main (void)
         }
       else if (menu == 2)
         {
-          print_all_credential (file);
+          print_all_credential ();
           loop = true;
         }
       else if (menu == 3)
         {
-          input_create_credential (file);
+          input_create_credential ();
           loop = true;
         }
-
       else if (menu == 4)
         {
-          search_credential (file);
+          search_credential ();
           loop = true;
         }
-
       else if (menu == 5)
         {
-          delete_credential (file, file_tmp);
+          delete_credential ();
           loop = true;
         }
       else
-        puts ("Input error (1,2,3,4,5 are valid option");
+        puts ("Input error (1, 2, 3, 4, 5 are valid option");
     }
   while (loop);
 

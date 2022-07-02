@@ -27,8 +27,9 @@
 #define BUFFERSIZE 100
 
 void
-print_all_credential (const char *filename)
+print_all_credential (void)
 {
+  const char *filename = file_name (NAMEFILE);
   FILE *file_password, *file_row;
   open_file (&file_password, filename);
   open_file (&file_row, filename);
@@ -59,7 +60,7 @@ print_all_credential (const char *filename)
 }
 
 void
-input_create_credential (const char *filename)
+input_create_credential (void)
 {
   credential_t credential = { 0, 0, 0, 0 };
   char buffer[BUFFERSIZE] = { 0 };
@@ -202,6 +203,7 @@ input_create_credential (const char *filename)
   free (password);
   password = NULL;
 
+  const char *filename = file_name (NAMEFILE);
   FILE *file;
   open_file (&file, filename);
   create (file, credential);
@@ -209,8 +211,9 @@ input_create_credential (const char *filename)
 }
 
 void
-search_credential (const char *filename)
+search_credential (void)
 {
+  const char *filename = file_name (NAMEFILE);
   FILE *file_password, *file_row;
   open_file (&file_password, filename);
   open_file (&file_row, filename);
@@ -261,8 +264,10 @@ search_credential (const char *filename)
 }
 
 void
-delete_credential (const char *filename, const char *tmp_filename)
+delete_credential (void)
 {
+  const char *filename = file_name (NAMEFILE);
+  const char *tmp_filename = file_name (NAMEFILETMP);
   FILE *file_password, *file_tmp;
   open_file (&file_password, filename);
   open_file (&file_tmp, tmp_filename);
