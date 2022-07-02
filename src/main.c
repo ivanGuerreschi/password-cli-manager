@@ -19,8 +19,8 @@
 #include "include/menu_wrapper.h"
 #include "info.h"
 #include "password.h"
-#include "utility.h"
 #include "search.h"
+#include "utility.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -58,18 +58,18 @@ main (void)
         }
 
       else if (menu == 4)
-	{
-	  search_credential (file);
-	  loop = true;
-	}
+        {
+          search_credential (file);
+          loop = true;
+        }
 
       else if (menu == 5)
-	{
-	  delete_credential (file, file_tmp);
-	  loop = true;
-	}
+        {
+          delete_credential (file, file_tmp);
+          loop = true;
+        }
       else
-	puts ("Input error (1,2,3,4,5 are valid option");
+        puts ("Input error (1,2,3,4,5 are valid option");
     }
   while (loop);
 

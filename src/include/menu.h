@@ -18,15 +18,6 @@
 #ifndef MENU_H
 #define MENU_H
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-  int print_menu (void);
-
-#ifdef __cplusplus
-}
-#endif
+int print_menu (void);
 
 #endif /* MENU_H */
