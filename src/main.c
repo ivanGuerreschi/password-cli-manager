@@ -33,7 +33,6 @@ main (int argc, char *argv[])
   int opt;
 
   while ((opt = getopt (argc, argv, "acdhsv")) != -1)
-    {
       switch (opt)
         {
         case 'a':
@@ -55,12 +54,14 @@ main (int argc, char *argv[])
           printf ("%s\n", package ());
           break;
         case '?':
-          fprintf (stderr, "Unknown option character `\\x%x'.\n", optopt);
+          fprintf (stderr, "Unknown option character '%c'.\n", optopt);
           return EXIT_SUCCESS;
         default:
           return EXIT_FAILURE;
         }
-    }
+
+  for (int index = optind; index < argc; index++)
+    printf ("Non-option argument %s\n", argv[index]);
 
   return EXIT_SUCCESS;
 }
