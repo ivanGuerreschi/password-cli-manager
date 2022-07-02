@@ -21,57 +21,46 @@
 #include "password.h"
 #include "search.h"
 #include "utility.h"
+#include <ctype.h>
+#include <getopt.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 int
-main (void)
+main (int argc, char *argv[])
 {
-  printf ("Password manager version: %s\n", version ());
-  printf ("Bug report: %s\n\n", bugreport ());
-  printf ("%s\n\n", license ());
+  int opt;
 
-  const char *file = file_name (NAMEFILE);
-  const char *file_tmp = NAMEFILETMP;
-  int menu = 0;
-  bool loop = true;
-
-  do
+  while ((opt = getopt (argc, argv, "acdhsv")) != -1)
     {
-      menu = print_menu ();
-
-      if (menu == 1)
+      switch (opt)
         {
-          exit (1);
-          loop = false;
+        case 'a':
+          print_all_credential ();
+          break;
+        case 'c':
+          create_credential ();
+          break;
+        case 'd':
+          delete_credential ();
+          break;
+        case 'h':
+          printf ("%s\n%s\n%s\n", help (), license (), bugreport ());
+          break;
+        case 's':
+          search_credential ();
+          break;
+        case 'v':
+          printf ("%s\n", package ());
+          break;
+        case '?':
+          fprintf (stderr, "Unknown option character `\\x%x'.\n", optopt);
+          return EXIT_SUCCESS;
+        default:
+          return EXIT_FAILURE;
         }
-      else if (menu == 2)
-        {
-          print_all_credential (file);
-          loop = true;
-        }
-      else if (menu == 3)
-        {
-          input_create_credential (file);
-          loop = true;
-        }
-
-      else if (menu == 4)
-        {
-          search_credential (file);
-          loop = true;
-        }
-
-      else if (menu == 5)
-        {
-          delete_credential (file, file_tmp);
-          loop = true;
-        }
-      else
-        puts ("Input error (1,2,3,4,5 are valid option");
     }
-  while (loop);
 
   return EXIT_SUCCESS;
 }

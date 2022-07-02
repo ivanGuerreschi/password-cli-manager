@@ -16,6 +16,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "info.h"
+#include <string.h>
 
 const char *
 version (void)
@@ -53,4 +54,19 @@ license (void)
          "You should have received a copy of the GNU General Public License\n"
          "along with this program.  If not, see "
          "<https://www.gnu.org/licenses/>.\n";
+}
+
+const char *
+help (void)
+{
+  const char *options = "password-cli-manager options\n"
+                        "Options:\n"
+                        "  -a All credential\n"
+                        "  -c Create credential\n"
+                        "  -d Delete credential\n"
+                        "  -h Help\n"
+                        "  -s Search credential\n"
+                        "  -v Program version\n";
+
+  return options;
 }
