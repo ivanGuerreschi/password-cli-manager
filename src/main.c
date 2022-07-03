@@ -21,7 +21,6 @@
 #include "password.h"
 #include "search.h"
 #include "utility.h"
-#include <ctype.h>
 #include <getopt.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -32,7 +31,26 @@ main (int argc, char *argv[])
 {
   int opt;
 
-  while ((opt = getopt (argc, argv, "acdhsv")) != -1)
+  while (1)
+    {
+      static struct option long_options[] =
+	{
+	  { "all",     no_argument, 0, 'a' },
+	  { "create",  required_argument, 0, 'c' },
+	  { "delete",  required_argument, 0, 'd' },
+	  { "help",    no_argument, 0, 'h' },
+	  { "search",  required_argument, 0, 's' },
+	  { "version", no_argument, 0, 'v' },
+	  { 0, 0 ,0 ,0 }
+	};
+
+      int option_index = 0;
+
+      opt = getopt_long (argc, argv, "acdhsv", long_options, &option_index);
+
+      if (opt == -1)
+        break;
+
       switch (opt)
         {
         case 'a':
@@ -52,16 +70,24 @@ main (int argc, char *argv[])
           break;
         case 'v':
           printf ("%s\n", package ());
+	  exit (EXIT_SUCCESS);
           break;
         case '?':
           fprintf (stderr, "Unknown option character '%c'.\n", optopt);
-          return EXIT_SUCCESS;
+	  printf ("%s\n", help ());
+          exit (EXIT_SUCCESS);
         default:
-          return EXIT_FAILURE;
+          exit (EXIT_FAILURE);
         }
+    }
 
-  for (int index = optind; index < argc; index++)
-    printf ("Non-option argument %s\n", argv[index]);
+  if (optind < argc)
+    {
+      printf ("non-option ARGV-elements: ");
+      while (optind < argc)
+        printf ("%s ", argv[optind++]);
+      putchar ('\n');
+    }
 
   return EXIT_SUCCESS;
 }
