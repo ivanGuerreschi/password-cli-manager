@@ -27,7 +27,7 @@
 #define BUFFERSIZE 100
 
 void
-print_all_credential (void)
+print_all_credential (unsigned int number_row)
 {
   const char *filename = file_name (NAMEFILE);
   FILE *file_password, *file_row;
@@ -37,6 +37,9 @@ print_all_credential (void)
   size_t row = count_row (file_row);
   credential_t *credential = all (file_password, row);
 
+  if (number_row > 0)
+    row = number_row;
+  
   puts ("ID Website Username Email Password");
 
   for (size_t i = 0; i < row; i++)

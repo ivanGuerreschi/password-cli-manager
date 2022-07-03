@@ -61,7 +61,8 @@ help (void)
 {
   const char *options = "password-cli-manager options\n"
                         "Options:\n"
-                        "  -a All credential\n"
+                        "  -a --all All credential\n"
+                        "  -aNUM --all=NUM Number of credentials entered in the NUM input"  
                         "  -c Create credential\n"
                         "  -d Delete credential\n"
                         "  -h Help\n"

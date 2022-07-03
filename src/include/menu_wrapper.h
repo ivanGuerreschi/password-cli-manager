@@ -18,7 +18,7 @@
 #ifndef MENU_WRAPPER_H
 #define MENU_WRAPPER_H
 
-void print_all_credential (void);
+void print_all_credential (unsigned int number_row);
 void create_credential (void);
 void search_credential (void);
 void delete_credential (void);
