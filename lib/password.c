@@ -188,8 +188,6 @@ create (FILE *file, credential_t credential)
       else
         strcat (new_credential, strcat (buffer, " "));
 
-      printf ("%s\n", new_credential);
-
       fprintf (file, "%s\n", new_credential);
     }
 

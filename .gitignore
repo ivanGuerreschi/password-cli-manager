@@ -69,6 +69,8 @@ tests/file_password_test
 tests/file_password_xfail_test
 tests/new_password_test
 tests/remove_file_password_test
+tests/delete_password_test
+tests/search_password_test
 
 .dir-locals.el
 GPATH

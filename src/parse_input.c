@@ -16,7 +16,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "include/parse_input.h"
-#include "include/menu_wrapper.h"
+#include "include/parse_wrapper.h"
 #include "info.h"
 #include "password.h"
 #include "search.h"
@@ -51,19 +51,19 @@ parsing (int argc, char **argv)
       switch (opt)
         {	  
         case 'a':
-          optarg ? print_all_credential (atoi (optarg)) : print_all_credential (0);
+          optarg ? print_all_credential (optarg) : print_all_credential ("0");
           break;
         case 'c':
-          create_credential ();
+          create_credential (optarg);
           break;
         case 'd':
-          delete_credential ();
+          delete_credential (optarg);
           break;
         case 'h':
           printf ("%s\n%s\n%s\n", help (), license (), bugreport ());
           break;
         case 's':
-          search_credential ();
+          search_credential (optarg);
           break;
         case 'v':
           printf ("%s\n", package ());
