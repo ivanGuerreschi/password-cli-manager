@@ -1,4 +1,4 @@
-/* menu.h
+/* parse_wrapper.h
 
    Copyright (C) 2022 Ivan Guerreschi.
 
@@ -15,9 +15,13 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#ifndef MENU_H
-#define MENU_H
+#ifndef PARSE_WRAPPER_H
+#define PARSE_WRAPPER_H
 
-int print_menu (void);
+void print_all_credential (const char *input_row);
+void create_credential (const char *new_credential);
+void search_credential (const char *search_key);
+void delete_credential (const char *input_row);
+void delete_file (void);
 
-#endif /* MENU_H */
+#endif /* PARSE_WRAPPER_H */

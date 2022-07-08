@@ -15,19 +15,13 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include "include/menu.h"
-#include "include/menu_wrapper.h"
-#include "info.h"
-#include "password.h"
-#include "search.h"
-#include "utility.h"
-#include <stdbool.h>
-#include <stdio.h>
+#include "include/parse_input.h"
 #include <stdlib.h>
 
 int
-main (void)
+main (int argc, char **argv)
 {
+<<<<<<< HEAD
   printf ("Password manager version: %s\n", version ());
   printf ("Bug report: %s\n\n", bugreport ());
   printf ("%s\n\n", license ());
@@ -68,6 +62,9 @@ main (void)
         puts ("Input error (1, 2, 3, 4, 5 are valid option");
     }
   while (loop);
+=======
+  parsing (argc, argv);
+>>>>>>> getopt_input
 
   return EXIT_SUCCESS;
 }

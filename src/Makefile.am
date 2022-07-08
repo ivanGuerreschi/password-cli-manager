@@ -21,7 +21,7 @@ AM_CFLAGS = -I $(top_srcdir)/src -I $(top_srcdir)/lib \
             -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
 	    -Wjump-misses-init -Wlogical-op
 
-nobase_include_HEADERS = include/menu.h include/menu_wrapper.h
+nobase_include_HEADERS = include/parse_wrapper.h include/parse_input.h
 bin_PROGRAMS = passwordclimanager
-passwordclimanager_SOURCES = main.c menu.c menu_wrapper.c
+passwordclimanager_SOURCES = main.c parse_wrapper.c parse_input.c
 passwordclimanager_LDADD = $(top_builddir)/lib/libpassword.a $(AM_LDFLAGS)

@@ -1,4 +1,4 @@
-/* menu_wrapper.h
+/* parse_input.h
 
    Copyright (C) 2022 Ivan Guerreschi.
 
@@ -15,13 +15,17 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#ifndef MENU_WRAPPER_H
-#define MENU_WRAPPER_H
+#ifndef PARSE_INPUT_H
+#define PARSE_INPUT_H
 
+<<<<<<< HEAD:src/include/menu_wrapper.h
 void print_all_credential (void);
 void input_create_credential (void);
 void search_credential (void);
 void delete_credential (void);
 void delete_file (void);
+=======
+void parsing (int argc, char **argv);
+>>>>>>> getopt_input:src/include/parse_input.h
 
-#endif /* MENU_WRAPPER_H */
+#endif /* PARSE_INPUT_H */

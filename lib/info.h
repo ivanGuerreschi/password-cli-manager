@@ -26,5 +26,6 @@ const char *version (void);
 const char *package (void);
 const char *bugreport (void);
 const char *license (void);
+const char *help (void);
 
 #endif /* INFO_H */
