@@ -63,10 +63,11 @@ help (void)
                         "Options:\n"
                         "  -a --all All credential\n"
                         "  -aNUM --all=NUM Number of credentials entered in the NUM input"  
-                        "  -c Create credential\n"
-                        "  -d Delete credential\n"
+                        "  -c\"WEBSITE USERNAME EMAIL PASSWORD\" Create credential\n" 
+                        "  --create=\"WEB USERNAME EMAIL PASSWORD\" Create credential\n"
+                        "  -dNUM  --delete=NUM Delete credential\n"
                         "  -h Help\n"
-                        "  -s Search credential\n"
+                        "  -sWORD --search=WORD Search credential\n"
                         "  -v Program version\n";
 
   return options;
