@@ -1,3 +1,12 @@
+2022-07-08 Ivan Guerreschi <ivanguerreschi86@gmail.com>
+	* Release: 1.2
+	* src/main.c (parsing): input user function
+	* src/menu_wrapper.c: rename file to parse_wrapper.c
+	* src/include/menu_wrapper.h: rename file to parse_wrapper.h
+	* src/parse_input.c (parsing): function for input user
+	* src/include/parse_input.h, src/parse_input.c (parsing): function for input user using getopt
+	* src/include/parse_wrapper.h, src/parse_wrapper.c (all function): update function for using parse_input
+
 2022-06-25 Ivan Guerreschi <ivanguerreschi86@gmail.com>
 
 	* Release: 1.1
