@@ -18,14 +18,6 @@
 #ifndef PARSE_INPUT_H
 #define PARSE_INPUT_H
 
-<<<<<<< HEAD:src/include/menu_wrapper.h
-void print_all_credential (void);
-void input_create_credential (void);
-void search_credential (void);
-void delete_credential (void);
-void delete_file (void);
-=======
 void parsing (int argc, char **argv);
->>>>>>> getopt_input:src/include/parse_input.h
 
 #endif /* PARSE_INPUT_H */

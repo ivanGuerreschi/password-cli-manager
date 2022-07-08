@@ -21,50 +21,8 @@
 int
 main (int argc, char **argv)
 {
-<<<<<<< HEAD
-  printf ("Password manager version: %s\n", version ());
-  printf ("Bug report: %s\n\n", bugreport ());
-  printf ("%s\n\n", license ());
-
-  int menu = 0;
-  bool loop = true;
-
-  do
-    {
-      menu = print_menu ();
-
-      if (menu == 1)
-        {
-          exit (1);
-          loop = false;
-        }
-      else if (menu == 2)
-        {
-          print_all_credential ();
-          loop = true;
-        }
-      else if (menu == 3)
-        {
-          input_create_credential ();
-          loop = true;
-        }
-      else if (menu == 4)
-        {
-          search_credential ();
-          loop = true;
-        }
-      else if (menu == 5)
-        {
-          delete_credential ();
-          loop = true;
-        }
-      else
-        puts ("Input error (1, 2, 3, 4, 5 are valid option");
-    }
-  while (loop);
-=======
   parsing (argc, argv);
->>>>>>> getopt_input
 
   return EXIT_SUCCESS;
 }
+
