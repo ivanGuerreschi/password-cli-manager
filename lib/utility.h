@@ -18,7 +18,7 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-#define NAMEFILE "/.passwordprove"
+#define NAMEFILE "/.password"
 #define NAMEFILETMP "/tmp/.passwordtmp"
 
 const char *file_name (const char *file_password);
