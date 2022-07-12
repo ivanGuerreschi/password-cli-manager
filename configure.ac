@@ -31,7 +31,7 @@ AC_PROG_RANLIB
 # Checks for header files.
 AC_CHECK_HEADERS([unistd.h])
 AC_CHECK_HEADER_STDBOOL
-AC_CHECK_FUNCS([memset strcspn strerror])
+AC_CHECK_FUNCS([memset strcspn strerror strndup])
 
 # Checks for library functions.
 AC_FUNC_MALLOC
