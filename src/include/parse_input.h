@@ -18,6 +18,14 @@
 #ifndef PARSE_INPUT_H
 #define PARSE_INPUT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void parsing (int argc, char **argv);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* PARSE_INPUT_H */

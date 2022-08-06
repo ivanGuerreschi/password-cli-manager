@@ -21,7 +21,15 @@
 #define NAMEFILE "/.password"
 #define NAMEFILETMP "/tmp/.passwordtmp"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 const char *file_name (const char *file_password);
 int remove_file (const char *file);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* UTILITY_H */

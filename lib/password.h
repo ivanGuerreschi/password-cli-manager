@@ -20,6 +20,10 @@
 
 #include <stdio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct
 {
   char *website;
@@ -35,5 +39,9 @@ credential_t *all (FILE *file, size_t row);
 void create (FILE *file, credential_t credential);
 int search (credential_t *credential, size_t row, const char *key);
 void delete (FILE *file, FILE *tmp_file, const int line);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* PASSWORD_H */
