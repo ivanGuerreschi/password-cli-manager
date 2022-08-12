@@ -18,8 +18,8 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-#define NAMEFILE "/.password"
-#define NAMEFILETMP "/tmp/.passwordtmp"
+#define NAMEFILE "/.password.gpg"
+#define NAMEFILETMP "/tmp/.passwordtmp.gpg"
 
 #ifdef __cplusplus
 extern "C" {

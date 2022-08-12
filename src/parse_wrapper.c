@@ -41,7 +41,7 @@ print_all_credential (const char *number_row)
   credential_t *credential = all (file_password, row);
 
   if (isdigit (number_row[0]))
-    line = atoi (number_row);
+    line = strtol (number_row, NULL, 10);
   else
     fprintf (stderr, "Error input is not number");
 
@@ -77,7 +77,7 @@ create_credential (const char *new_credential)
   credential_t credential = { 0, 0, 0, 0 };
   const char *delimiters = " ";
   char *token;
-  char *cp;
+  char *copy_credential;
 
   if (new_credential[0] == ' ' || new_credential[0] == '\0') 
     {
@@ -85,9 +85,9 @@ create_credential (const char *new_credential)
       exit (EXIT_FAILURE);
     }
   
-  cp = strndup (new_credential, strlen (new_credential));
+  copy_credential = strndup (new_credential, strlen (new_credential));
 
-  token = strtok (cp, delimiters);
+  token = strtok (copy_credential, delimiters);
   if (token[0] != '\0')
     {
       credential.website = malloc (100 * sizeof (char));
@@ -164,6 +164,7 @@ create_credential (const char *new_credential)
   open_file (&file, filename);
   create (file, credential);
   close_file (&file);
+  free (copy_credential);
 }
 
 void
