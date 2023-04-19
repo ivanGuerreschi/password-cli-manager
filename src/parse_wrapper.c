@@ -187,6 +187,14 @@ search_credential (const char *search_key)
   else
     puts ("Not found");
 
+  for (size_t i = 0; i < row; i++)
+    {
+      free (credential[i].website);
+      free (credential[i].username);
+      free (credential[i].email);
+      free (credential[i].password);
+    }
+
   free (credential);
   credential = NULL;
   close_file (&file_row);
