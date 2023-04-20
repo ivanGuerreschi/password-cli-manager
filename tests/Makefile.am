@@ -1,6 +1,6 @@
 # Makefile.am
 #
-# Copyright (C) 2022 Ivan Guerreschi
+# Copyright (C) 2022-2023 Ivan Guerreschi
 #
 # Author: Ivan Guerreschi <ivanguerreschi86@gmail.com>
 # Maintainer: Ivan Guerreschi <ivanguerreschi86@gmail.com>e

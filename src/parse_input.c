@@ -1,6 +1,6 @@
 /* parse_input.c
 
-   Copyright (C) 2022 Ivan Guerreschi.
+   Copyright (C) 2022-2023 Ivan Guerreschi.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -30,49 +30,48 @@ parsing (int argc, char **argv)
 {
   int opt;
   const char *short_opts = "a::c:d:hs:v";
-  static struct option long_options[] =
-	{
-	  { "all",     optional_argument, 0, 'a' },
-	  { "create",  required_argument, 0, 'c' },
-	  { "delete",  required_argument, 0, 'd' },
-	  { "help",    no_argument,       0, 'h' },
-	  { "search",  required_argument, 0, 's' },
-	  { "version", no_argument,       0, 'v' },
-	  { 0, 0, 0 ,0 }
-	};
-  
+  static struct option long_options[] = {
+    {"all", optional_argument, 0, 'a'},
+    {"create", required_argument, 0, 'c'},
+    {"delete", required_argument, 0, 'd'},
+    {"help", no_argument, 0, 'h'},
+    {"search", required_argument, 0, 's'},
+    {"version", no_argument, 0, 'v'},
+    {0, 0, 0, 0}
+  };
+
   while (1)
-    {      
+    {
       opt = getopt_long (argc, argv, short_opts, long_options, 0);
 
       if (opt == -1)
-	break;
+	    break;
 
       switch (opt)
-        {	  
-        case 'a':
-          optarg ? print_all_credential (optarg) : print_all_credential ("0");
-          break;
-        case 'c':
-          create_credential (optarg);
-          break;
-        case 'd':
-          delete_credential (optarg);
-          break;
-        case 'h':
-          printf ("%s\n%s\n%s\n", help (), license (), bugreport ());
-          break;
-        case 's':
-          search_credential (optarg);
-          break;
-        case 'v':
-          printf ("%s\n", package ());
-          break;	
-	case '?':
-	  printf ("%s\n", help ());
-	  break;
-	default:
-	  abort ();          
-        }
+	    {
+	    case 'a':
+	      optarg ? print_all_credential (optarg) : print_all_credential ("0");
+	      break;
+	    case 'c':
+	      create_credential (optarg);
+	      break;
+	    case 'd':
+	      delete_credential (optarg);
+	      break;
+	    case 'h':
+	      printf ("%s\n%s\n%s\n", help (), license (), bugreport ());
+	      break;
+	    case 's':
+	      search_credential (optarg);
+	      break;
+	    case 'v':
+	      printf ("%s\n", package ());
+	      break;
+	    case '?':
+	      printf ("%s\n", help ());
+	      break;
+	    default:
+	      abort ();
+	    }
     }
 }

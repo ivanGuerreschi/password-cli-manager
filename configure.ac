@@ -1,6 +1,6 @@
 dnl configure.ac
 dnl
-dnl Copyright (C) 2022 Ivan Guerreschi.
+dnl Copyright (C) 2022-2023 Ivan Guerreschi.
 dnl
 dnl Author: Ivan Guerreschi <ivanguerreschi86@gmail.com>
 dnl Maintainer: Ivan Guerreschi <ivanguerreschi86@gmail.com>e
