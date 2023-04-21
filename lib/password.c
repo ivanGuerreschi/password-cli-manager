@@ -121,7 +121,7 @@ all (FILE *file, size_t row)
       res = fscanf (file, "%s", credential[i].password);
       if (res != 1)
         {
-	  fprintf (stderr, "Error read file /home/user/.password\n");
+	      fprintf (stderr, "Error read file /home/user/.password\n");
           exit (EXIT_FAILURE);
         }
 
@@ -211,7 +211,7 @@ search (credential_t *credential, size_t row, const char *key)
 	  || strcmp (credential[i].password, key) == 0)
         {
           result = i;
-	  break;
+	      break;
         }
       else
         result = -1;
@@ -230,6 +230,7 @@ delete (FILE *file, FILE *tmp_file, const int line)
     {
       if (line != count)
         fputs(buffer, tmp_file);
+
       count++;
     }
 }
