@@ -49,8 +49,8 @@ close_file (FILE **file)
 size_t
 count_row (FILE *file)
 {
-  char c;
-  int count = 0;
+  int c;
+  size_t count = 0;
 
   for (c = getc (file); c != EOF; c = getc (file))
     if (c == '\n')
@@ -203,7 +203,7 @@ search (credential_t *credential, size_t row, const char *key)
 {
   int result = -1;
   
-  for (size_t i = 0; i < row; i++)
+  for (int i = 0; i < (int) row; i++)
     {
       if (strcmp (credential[i].website, key) == 0
 	  || strcmp (credential[i].username, key) == 0
@@ -234,4 +234,3 @@ delete (FILE *file, FILE *tmp_file, const int line)
       count++;
     }
 }
-

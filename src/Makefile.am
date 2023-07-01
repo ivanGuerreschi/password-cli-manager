@@ -16,10 +16,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 AM_CFLAGS = -I $(top_srcdir)/src -I $(top_srcdir)/lib \
-	    -Wall -Wextra -Wformat=2 -Wno-unused-parameter -Wshadow \
-            -Wwrite-strings -Wstrict-prototypes -Wold-style-definition \
-            -Wredundant-decls -Wnested-externs -Wmissing-include-dirs \
-	    -Wjump-misses-init -Wlogical-op
+			-Wall -Wextra -Wdouble-promotion -Wformat-security -Wformat-type-confusion \ 
+			-Winit-self -Wswitch-default -Wstrict-overflow=4 -Walloca -Wshadow -pedantic \
+			-Wcast-qual -Wconversion -Wdate-time -Wstrict-prototypes -Wmissing-prototypes \
+			-Winvalid-pch -Wmissing-variable-declarations -Wunreachable-code-aggressive \
+			-Wextra-semi-stmt -Wused-but-marked-unused -Wcast-align -Wdocumentation 
 
 nobase_include_HEADERS = include/parse_wrapper.h include/parse_input.h
 bin_PROGRAMS = passwordclimanager

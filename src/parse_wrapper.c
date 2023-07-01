@@ -35,7 +35,7 @@ print_all_credential (const char *number_row)
   open_file (&file_password, filename);
   open_file (&file_row, filename);
 
-  int line = 0;
+  long line = 0;
 
   size_t row = count_row (file_row);
   credential_t *credential = all (file_password, row);
@@ -46,7 +46,7 @@ print_all_credential (const char *number_row)
     fprintf (stderr, "Error input is not number");
 
   if (line > 0)
-    row = line;
+    row = (size_t) line;
 
   puts ("ID Website Username Email Password");
 
@@ -209,7 +209,7 @@ delete_credential (const char *input_row)
   FILE *file_password, *file_tmp;
   open_file (&file_password, filename);
   open_file (&file_tmp, tmp_filename);
-  unsigned int line = 0;
+  int line = 0;
 
   if (isdigit (input_row[0]))
     {
