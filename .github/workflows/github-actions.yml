@@ -33,3 +33,5 @@ jobs:
           make
           make check
         shell: bash
+        env:
+          CC: clang-14
