@@ -18,11 +18,11 @@
 #include "info.h"
 #include <string.h>
 
-const char *version(void) { return VERSION; }
+const char *version(void) { return ""; }
 
-const char *package(void) { return PACKAGE_STRING; }
+const char *package(void) { return ""; }
 
-const char *bugreport(void) { return PACKAGE_BUGREPORT; }
+const char *bugreport(void) { return ""; }
 
 const char *license(void) {
   return "This program is free software: you can redistribute it and/or "

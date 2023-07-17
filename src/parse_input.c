@@ -15,8 +15,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include "include/parse_input.h"
-#include "include/parse_wrapper.h"
+#include "parse_input.h"
+#include "parse_wrapper.h"
 #include "info.h"
 #include "password.h"
 #include "search.h"

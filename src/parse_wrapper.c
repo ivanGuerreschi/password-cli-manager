@@ -15,7 +15,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include "include/parse_wrapper.h"
+#include "parse_wrapper.h"
 #include "password.h"
 #include "utility.h"
 #include <ctype.h>
@@ -77,7 +77,7 @@ void create_credential(const char *new_credential) {
     exit(EXIT_FAILURE);
   }
 
-  copy_credential = strndup(new_credential, strlen(new_credential));
+  copy_credential = strndup(new_credential, strlen(new_credential)); 
 
   token = strtok(copy_credential, delimiters);
   if (token[0] != '\0') {
