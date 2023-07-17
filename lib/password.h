@@ -24,20 +24,19 @@
 extern "C" {
 #endif
 
-typedef struct
-{
+typedef struct {
   char *website;
   char *username;
   char *email;
   char *password;
 } credential_t;
 
-void open_file (FILE **file, const char *filename);
-void close_file (FILE **file);
-size_t count_row (FILE *file);
-credential_t *all (FILE *file, size_t row);
-void create (FILE *file, credential_t credential);
-int search (credential_t *credential, size_t row, const char *key);
+void open_file(FILE **file, const char *filename);
+void close_file(FILE **file);
+size_t count_row(FILE *file);
+credential_t *all(FILE *file, size_t row);
+void create(FILE *file, credential_t credential);
+int search(credential_t *credential, size_t row, const char *key);
 void delete (FILE *file, FILE *tmp_file, const int line);
 
 #ifdef __cplusplus

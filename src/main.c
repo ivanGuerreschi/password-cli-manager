@@ -18,10 +18,8 @@
 #include "include/parse_input.h"
 #include <stdlib.h>
 
-int
-main (int argc, char **argv)
-{
-  parsing (argc, argv);
+int main(int argc, char **argv) {
+  parsing(argc, argv);
 
   return EXIT_SUCCESS;
 }

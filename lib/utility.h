@@ -25,8 +25,8 @@
 extern "C" {
 #endif
 
-const char *file_name (const char *file_password);
-int remove_file (const char *file);
+const char *file_name(const char *file_password);
+int remove_file(const char *file);
 
 #ifdef __cplusplus
 }

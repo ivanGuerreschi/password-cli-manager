@@ -18,27 +18,13 @@
 #include "info.h"
 #include <string.h>
 
-const char *
-version (void)
-{
-  return VERSION;
-}
+const char *version(void) { return VERSION; }
 
-const char *
-package (void)
-{
-  return PACKAGE_STRING;
-}
+const char *package(void) { return PACKAGE_STRING; }
 
-const char *
-bugreport (void)
-{
-  return PACKAGE_BUGREPORT;
-}
+const char *bugreport(void) { return PACKAGE_BUGREPORT; }
 
-const char *
-license (void)
-{
+const char *license(void) {
   return "This program is free software: you can redistribute it and/or "
          "modify\n"
          "it under the terms of the GNU General Public License as published "
@@ -56,19 +42,18 @@ license (void)
          "<https://www.gnu.org/licenses/>.\n";
 }
 
-const char *
-help (void)
-{
-  const char *options = "password-cli-manager options\n"
-                        "Options:\n"
-                        "  -a --all All credential\n"
-                        "  -aNUM --all=NUM Number of credentials entered in the NUM input"  
-                        "  -c\"WEBSITE USERNAME EMAIL PASSWORD\" Create credential\n" 
-                        "  --create=\"WEB USERNAME EMAIL PASSWORD\" Create credential\n"
-                        "  -dNUM  --delete=NUM Delete credential\n"
-                        "  -h Help\n"
-                        "  -sWORD --search=WORD Search credential\n"
-                        "  -v Program version\n";
+const char *help(void) {
+  const char *options =
+      "password-cli-manager options\n"
+      "Options:\n"
+      "  -a --all All credential\n"
+      "  -aNUM --all=NUM Number of credentials entered in the NUM input"
+      "  -c\"WEBSITE USERNAME EMAIL PASSWORD\" Create credential\n"
+      "  --create=\"WEB USERNAME EMAIL PASSWORD\" Create credential\n"
+      "  -dNUM  --delete=NUM Delete credential\n"
+      "  -h Help\n"
+      "  -sWORD --search=WORD Search credential\n"
+      "  -v Program version\n";
 
   return options;
 }

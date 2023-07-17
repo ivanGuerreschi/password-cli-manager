@@ -23,23 +23,19 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-const char *
-file_name (const char *file_password)
-{
+const char *file_name(const char *file_password) {
   char *file;
 
-  if ((file = getenv ("HOME")) == NULL)
-    file = getpwuid (getuid ())->pw_dir;
+  if ((file = getenv("HOME")) == NULL)
+    file = getpwuid(getuid())->pw_dir;
 
-  strcat (file, file_password);
+  strcat(file, file_password);
 
   return file;
 }
 
-int
-remove_file (const char *file)
-{
-  if (remove (file) == 0)
+int remove_file(const char *file) {
+  if (remove(file) == 0)
     return 0;
   else
     return -1;
