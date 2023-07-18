@@ -16,6 +16,7 @@ project_source_files = [
 passwordlib = library(
   'password', 
   sources : project_source_files,
+  install : true,
   c_args : build_args
 )
 
