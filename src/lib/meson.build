@@ -19,11 +19,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 
 build_args = [
-	'-Wall', '-Wextra', '-Wdouble-promotion', '-Wformat-security', '-Wformat-type-confusion',  
-	'-Winit-self', '-Wswitch-default', '-Wstrict-overflow=4', '-Walloca', '-Wshadow', '-pedantic',
+	'-Wall', '-Wextra', '-Wdouble-promotion', '-Wformat-security', '-Wformat-signedness',  
+	'-Winit-self', '-Wshift-overflow=2', '-Wswitch-default', '-Wstrict-overflow=4', '-Walloca',
+	'-Warith-conversion', '-Wshadow', '-Wduplicated-branches', '-Wduplicated-cond',
 	'-Wcast-qual', '-Wconversion', '-Wdate-time', '-Wstrict-prototypes', '-Wmissing-prototypes',
-	'-Winvalid-pch', '-Wmissing-variable-declarations', '-Wunreachable-code-aggressive',
-	'-Wextra-semi-stmt', '-Wused-but-marked-unused', '-Wcast-align', '-Wdocumentation'
+	'-Winvalid-pch', 
 ]
 
 project_source_files = [

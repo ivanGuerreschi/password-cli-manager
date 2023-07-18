@@ -49,7 +49,7 @@ void print_all_credential(const char *number_row) {
   puts("ID Website Username Email Password");
 
   for (size_t i = 0; i < row; i++) {
-    printf("%ld %s %s %s %s\n", i + 1, credential[i].website,
+    printf("%zu %s %s %s %s\n", i + 1, credential[i].website,
            credential[i].username, credential[i].email, credential[i].password);
   }
 
