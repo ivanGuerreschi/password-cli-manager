@@ -17,11 +17,11 @@ ftp://ftp.gnu.org/gnu.
 
 Install dependencies on Ubuntu
 sudo apt update
-sudo apt install clang autotools-dev autoconf autoconf-archive
+sudo apt install gcc autotools-dev autoconf autoconf-archive
 
 Install dependencies on Fedora
 sudo dnf update
-sudo dnf install clang autotools-dev autoconf autoconf-archive
+sudo dnf install gcc autotools-dev autoconf autoconf-archive
 
 Building
 --------

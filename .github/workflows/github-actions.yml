@@ -26,12 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: sudo apt install -y clang autoconf autotools-dev autoconf-archive
+      - run: sudo apt install -y gcc autoconf autotools-dev autoconf-archive
       - run: |
           chmod +x ./bootstrap
           ./bootstrap
           make
           make check
         shell: bash
-        env:
-          CC: clang-14

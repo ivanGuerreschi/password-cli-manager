@@ -41,6 +41,6 @@ main (void)
     value = 0;
   else
     value = 1;
-  
+
   return value;
 }
