@@ -34,9 +34,9 @@ print_all_credential (const char *number_row)
   FILE *file_password, *file_row;
   open_file (&file_password, filename);
   open_file (&file_row, filename);
-
+  
   long line = 0;
-
+  
   size_t row = count_row (file_row);
   credential_t *credential = all (file_password, row);
 

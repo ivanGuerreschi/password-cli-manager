@@ -23,10 +23,10 @@ extern "C"
 {
 #endif
 
-  void parsing (int argc, char **argv);
+void parsing (int argc, char **argv);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif				/* PARSE_INPUT_H */
+#endif /* PARSE_INPUT_H */

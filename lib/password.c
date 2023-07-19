@@ -29,7 +29,7 @@ open_file (FILE ** file, const char *filename)
     {
       int error_number = errno;
       fprintf (stderr, "Error open file /home/user/.password %s\n",
-	       strerror (error_number));
+               strerror (error_number));
       exit (EXIT_FAILURE);
     }
 }
@@ -41,7 +41,7 @@ close_file (FILE ** file)
     {
       int error_number = errno;
       fprintf (stderr, "Error close file /home/user/.password %s\n",
-	       strerror (error_number));
+               strerror (error_number));
       exit (EXIT_FAILURE);
     }
 }
@@ -63,7 +63,7 @@ credential_t *
 all (FILE * file, size_t row)
 {
   credential_t *credential = calloc (row + 1, sizeof (credential_t));
-
+  
   if (!credential)
     {
       fprintf (stderr, "Error allocation failed");
@@ -74,31 +74,31 @@ all (FILE * file, size_t row)
     {
       credential[i].website = malloc (100 * sizeof (char));
       if (!credential[i].website)
-	{
-	  fprintf (stderr, "Error allocation failed");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error allocation failed");
+          exit (EXIT_FAILURE);
+        }
 
       credential[i].email = malloc (100 * sizeof (char));
       if (!credential[i].email)
-	{
-	  fprintf (stderr, "Error allocation failed");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error allocation failed");
+          exit (EXIT_FAILURE);
+        }
 
       credential[i].username = malloc (100 * sizeof (char));
       if (!credential[i].username)
-	{
-	  fprintf (stderr, "Error allocation failed");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error allocation failed");
+          exit (EXIT_FAILURE);
+        }
 
       credential[i].password = malloc (100 * sizeof (char));
       if (!credential[i].password)
-	{
-	  fprintf (stderr, "Error allocation failed");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error allocation failed");
+          exit (EXIT_FAILURE);
+        }
     }
 
   int i = 0;
@@ -108,22 +108,22 @@ all (FILE * file, size_t row)
     {
       res = fscanf (file, "%s", credential[i].website);
       if (res != 1)
-	break;
+        break;
 
       res = fscanf (file, "%s", credential[i].username);
       if (res != 1)
-	break;
+        break;
 
       res = fscanf (file, "%s", credential[i].email);
       if (res != 1)
-	break;
+        break;
 
       res = fscanf (file, "%s", credential[i].password);
       if (res != 1)
-	{
-	  fprintf (stderr, "Error read file /home/user/.password\n");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error read file /home/user/.password\n");
+          exit (EXIT_FAILURE);
+        }
 
       i++;
     }
@@ -146,51 +146,51 @@ create (FILE * file, credential_t credential)
     {
       strcpy (buffer, credential.website);
       new_credential =
-	realloc (new_credential,
-		 strlen (new_credential) + 2 + strlen (buffer));
+        realloc (new_credential,
+                 strlen (new_credential) + 2 + strlen (buffer));
       if (!new_credential)
-	{
-	  fprintf (stderr, "Error allocation failed");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error allocation failed");
+          exit (EXIT_FAILURE);
+        }
       else
-	strcat (new_credential, strcat (buffer, " "));
+        strcat (new_credential, strcat (buffer, " "));
 
       strcpy (buffer, credential.username);
       new_credential =
-	realloc (new_credential,
-		 strlen (new_credential) + 2 + strlen (buffer));
+        realloc (new_credential,
+                 strlen (new_credential) + 2 + strlen (buffer));
       if (!new_credential)
-	{
-	  fprintf (stderr, "Error allocation failed");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error allocation failed");
+          exit (EXIT_FAILURE);
+        }
       else
-	strcat (new_credential, strcat (buffer, " "));
+        strcat (new_credential, strcat (buffer, " "));
 
       strcpy (buffer, credential.email);
       new_credential =
-	realloc (new_credential,
-		 strlen (new_credential) + 2 + strlen (buffer));
+        realloc (new_credential,
+                 strlen (new_credential) + 2 + strlen (buffer));
       if (!new_credential)
-	{
-	  fprintf (stderr, "Error allocation failed");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error allocation failed");
+          exit (EXIT_FAILURE);
+        }
       else
-	strcat (new_credential, strcat (buffer, " "));
+        strcat (new_credential, strcat (buffer, " "));
 
       strcpy (buffer, credential.password);
       new_credential =
-	realloc (new_credential,
-		 strlen (new_credential) + 2 + strlen (buffer));
+        realloc (new_credential,
+                 strlen (new_credential) + 2 + strlen (buffer));
       if (!new_credential)
-	{
-	  fprintf (stderr, "Error allocation failed");
-	  exit (EXIT_FAILURE);
-	}
+        {
+          fprintf (stderr, "Error allocation failed");
+          exit (EXIT_FAILURE);
+        }
       else
-	strcat (new_credential, strcat (buffer, " "));
+        strcat (new_credential, strcat (buffer, " "));
 
       fprintf (file, "%s\n", new_credential);
     }
@@ -210,15 +210,15 @@ search (credential_t * credential, size_t row, const char *key)
   for (int i = 0; i < (int) row; i++)
     {
       if (strcmp (credential[i].website, key) == 0 ||
-	  strcmp (credential[i].username, key) == 0 ||
-	  strcmp (credential[i].email, key) == 0 ||
-	  strcmp (credential[i].password, key) == 0)
-	{
-	  result = i;
-	  break;
-	}
+          strcmp (credential[i].username, key) == 0 ||
+          strcmp (credential[i].email, key) == 0 ||
+          strcmp (credential[i].password, key) == 0)
+        {
+          result = i;
+          break;
+        }
       else
-	result = -1;
+        result = -1;
     }
 
   return result;
@@ -233,7 +233,7 @@ delete (FILE * file, FILE * tmp_file, const int line)
   while ((fgets (buffer, BUFSIZ, file)) != NULL)
     {
       if (line != count)
-	fputs (buffer, tmp_file);
+        fputs (buffer, tmp_file);
 
       count++;
     }

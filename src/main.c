@@ -22,6 +22,6 @@ int
 main (int argc, char **argv)
 {
   parsing (argc, argv);
-
+  
   return EXIT_SUCCESS;
 }

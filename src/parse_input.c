@@ -19,7 +19,6 @@
 #include "include/parse_wrapper.h"
 #include "info.h"
 #include "password.h"
-#include "search.h"
 #include "utility.h"
 #include <getopt.h>
 #include <stdio.h>
@@ -29,14 +28,17 @@ void
 parsing (int argc, char **argv)
 {
   int opt;
+
   const char *short_opts = "a::c:d:hs:v";
-  static struct option long_options[] = { {"all", optional_argument, 0, 'a'},
-  {"create", required_argument, 0, 'c'},
-  {"delete", required_argument, 0, 'd'},
-  {"help", no_argument, 0, 'h'},
-  {"search", required_argument, 0, 's'},
-  {"version", no_argument, 0, 'v'},
-  {0, 0, 0, 0}
+
+  static struct option long_options[] = {
+    {"all", optional_argument, 0, 'a'},
+    {"create", required_argument, 0, 'c'},
+    {"delete", required_argument, 0, 'd'},
+    {"help", no_argument, 0, 'h'},
+    {"search", required_argument, 0, 's'},
+    {"version", no_argument, 0, 'v'},
+    {0, 0, 0, 0}
   };
 
   while (1)

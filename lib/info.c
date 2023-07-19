@@ -18,6 +18,7 @@
 #include "info.h"
 #include <string.h>
 
+
 const char *
 version (void)
 {
@@ -57,8 +58,8 @@ license (void)
 const char *
 help (void)
 {
-  const char *options =
-    "password-cli-manager options\n"
+  
+  return  "password-cli-manager options\n"
     "Options:\n"
     "  -a --all All credential\n"
     "  -aNUM --all=NUM Number of credentials entered in the NUM input"
@@ -67,6 +68,4 @@ help (void)
     "  -dNUM  --delete=NUM Delete credential\n"
     "  -h Help\n"
     "  -sWORD --search=WORD Search credential\n" "  -v Program version\n";
-
-  return options;
 }

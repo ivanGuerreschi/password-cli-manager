@@ -23,13 +23,13 @@ extern "C"
 {
 #endif
 
-  void print_all_credential (const char *input_row);
-  void create_credential (const char *new_credential);
-  void search_credential (const char *search_key);
-  void delete_credential (const char *input_row);
+void print_all_credential (const char *input_row);
+void create_credential (const char *new_credential);
+void search_credential (const char *search_key);
+void delete_credential (const char *input_row);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif				/* PARSE_WRAPPER_H */
+#endif /* PARSE_WRAPPER_H */
